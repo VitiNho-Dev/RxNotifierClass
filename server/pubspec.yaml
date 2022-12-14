@@ -1,13 +1,16 @@
 name: server
 description: A sample command-line application.
 version: 1.0.0
+publish_to: none
 # homepage: https://www.example.com
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
 
-# dependencies:
-#   path: ^1.8.0
+dependencies:
+  socket_io: ^1.0.1
+  common:
+    path: ../common
 
 dev_dependencies:
   lints: ^2.0.0
