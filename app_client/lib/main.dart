@@ -1,6 +1,6 @@
-import 'package:app_client/controller.dart';
+import 'package:app_client/src/chat_page.dart';
+import 'package:app_client/src/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:rx_notifier/rx_notifier.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,52 +16,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final controller = Controller();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            RxBuilder(
-              builder: (context) {
-                return Text(
-                  '${controller.counter.value}',
-                  style: Theme.of(context).textTheme.headline4,
-                );
-              },
-            )
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: controller.incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/chat': (context) {
+          final args = ModalRoute.of(context)?.settings.arguments as Map;
+          return ChatPage(name: args['name'], room: args['room']);
+        }
+      },
     );
   }
 }
