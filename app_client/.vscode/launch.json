@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "SM J600GT (mobile)",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "52008f47034c65b7"]
+        },
+        {
+            "name": "Linux",
+            "request": "launch",
+            "type": "dart",
+            "args": ["-d", "linux"]
+        },
+        {
+            "name": "app_client (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app_client (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

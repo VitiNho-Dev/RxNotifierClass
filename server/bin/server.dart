@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:socket_io/socket_io.dart';
 import 'package:common/common.dart';
 
@@ -10,7 +8,7 @@ void main(List<String> arguments) {
     onConnection(client);
   });
 
-  server.listen(Platform.environment['PORT'] ?? 3000);
+  server.listen(3000);
 }
 
 void onConnection(Socket socket) {
